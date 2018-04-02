@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Standard Meta -->
+    <meta charset="utf-8">
+    <meta name="language" content="english">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Site Properties -->
+    <title>{{ site.name }}</title>
+    <meta name="description" content="{{ site.description }}">
+    <meta name="author" content="{{ site.author }}">
+    <meta name="designer" content="{{ site.author }}">
+    <meta name="publisher" content="{{ site.author }}">
+    <meta name="no-email-collection" content="http://www.unspam.com/noemailcollection/">
+
+    <!--Search Engine Optimization Meta Tags-->
+    <meta name="description" content="{{ site.description }}">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index,follow">
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="web">
+    <meta http-equiv="refresh" content="30">
+    <meta name="robots" content="noodp">
+
+    <!--Meta Tags for HTML pages on Mobile-->
+    <meta name="format-detection" content="telephone=yes"/>
+    <meta name="HandheldFriendly" content="true"/>
+    
+    <meta name="copyright" content="Copyright 2018">
+    <meta name="abstract" content="">
+    <meta name="city" content="Denver">
+    <meta name="country" content="USA">
+    <meta name="distribution" content="global">
+
+    <!-- Stylesheets -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css"> -->
+    <link href="https://fonts.googleapis.com/css?family=Fenix|Montserrat:700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+    <!-- Main -->
+    {% include main.html %}
+
+    <!-- Footer -->
+    {% include footer.html %}
+</body>
+</html>
