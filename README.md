@@ -1,3 +1,3 @@
-# 23maverick23.github.io
+# ryancmorrissey.com
 
-Professional landing page
+Personal landing page for Ryan Morrissey, built using web tools and fun.

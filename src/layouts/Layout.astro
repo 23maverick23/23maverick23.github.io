@@ -1,0 +1,41 @@
+---
+import stylesUrl from '../styles/style.css?url';
+import Footer from '../components/Footer.astro';
+
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>{title}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="{description}">
+	  
+		<meta property="og:title" content="ryancmorrissey.com">
+		<meta property="og:type" content={description}>
+		<meta property="og:url" content="https://ryancmorrissey.com">
+		<meta property="og:image" content="icon.png">
+		<meta property="og:image:alt" content="awesome-m-icon">
+	  
+		<link rel="icon" href="/favicon.ico" sizes="any">
+		<link rel="apple-touch-icon" href="/icon.png">
+	  
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://unpkg.com">
+
+		<link rel="preload" href={stylesUrl} as="style">
+		<link rel="stylesheet" href={stylesUrl}>
+	  
+		<link rel="manifest" href="/site.webmanifest">
+		<meta name="theme-color" content="var(--ctp-latte-sky)">
+	</head>
+	<body>
+		<slot />
+		<Footer />
+	</body>
+</html>
+
+<style>
+
+</style>
