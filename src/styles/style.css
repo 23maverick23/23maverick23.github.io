@@ -11,9 +11,32 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-/* add catpucchin color theme */
-@import url("https://unpkg.com/@catppuccin/palette/css/catppuccin.css");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto+Mono&display=swap");
+/* Catppuccin color palette - inlined for performance */
+:root {
+	/* Latte (Light) theme colors */
+	--ctp-latte-base: #eff1f5;
+	--ctp-latte-mantle: #e6e9ef;
+	--ctp-latte-surface1: #ccd0da;
+	--ctp-latte-overlay0: #9ca0b0;
+	--ctp-latte-subtext0: #6c6f85;
+	--ctp-latte-text: #4c4f69;
+	--ctp-latte-mauve: #8839ef;
+	--ctp-latte-sky: #04a5e5;
+	--ctp-latte-maroon: #e64553;
+	--ctp-latte-pink: #ea76cb;
+
+	/* Macchiato (Dark) theme colors */
+	--ctp-macchiato-base: #24273a;
+	--ctp-macchiato-mantle: #1e2030;
+	--ctp-macchiato-surface1: #494d64;
+	--ctp-macchiato-overlay0: #6e738d;
+	--ctp-macchiato-subtext0: #a5adcb;
+	--ctp-macchiato-text: #cad3f5;
+	--ctp-macchiato-mauve: #c6a0f6;
+	--ctp-macchiato-sky: #91d7e3;
+	--ctp-macchiato-maroon: #ee99a0;
+	--ctp-macchiato-pink: #f5bde6;
+}
 
 :root {
 	color-scheme: light dark;
@@ -30,6 +53,35 @@
 	--color-sky: light-dark(var(--ctp-latte-sky), var(--ctp-macchiato-sky));
 	--color-maroon: light-dark(var(--ctp-latte-maroon), var(--ctp-macchiato-maroon));
 	--color-pink: light-dark(var(--ctp-latte-pink), var(--ctp-macchiato-pink));
+}
+
+/* Manual theme overrides via data-theme attribute */
+:root[data-theme="light"] {
+	color-scheme: light;
+	--color-base: var(--ctp-latte-base);
+	--color-mantle: var(--ctp-latte-mantle);
+	--color-surface1: var(--ctp-latte-surface1);
+	--color-overlay0: var(--ctp-latte-overlay0);
+	--color-subtext0: var(--ctp-latte-subtext0);
+	--color-text: var(--ctp-latte-text);
+	--color-mauve: var(--ctp-latte-mauve);
+	--color-sky: var(--ctp-latte-sky);
+	--color-maroon: var(--ctp-latte-maroon);
+	--color-pink: var(--ctp-latte-pink);
+}
+
+:root[data-theme="dark"] {
+	color-scheme: dark;
+	--color-base: var(--ctp-macchiato-base);
+	--color-mantle: var(--ctp-macchiato-mantle);
+	--color-surface1: var(--ctp-macchiato-surface1);
+	--color-overlay0: var(--ctp-macchiato-overlay0);
+	--color-subtext0: var(--ctp-macchiato-subtext0);
+	--color-text: var(--ctp-macchiato-text);
+	--color-mauve: var(--ctp-macchiato-mauve);
+	--color-sky: var(--ctp-macchiato-sky);
+	--color-maroon: var(--ctp-macchiato-maroon);
+	--color-pink: var(--ctp-macchiato-pink);
 }
 
 * {
@@ -126,6 +178,61 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+/* Theme Toggle */
+.theme-toggle {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	font-size: 0.9rem;
+	z-index: 100;
+}
+
+.theme-toggle button {
+	background: none;
+	border: none;
+	color: var(--color-text);
+	font-family: inherit;
+	font-size: inherit;
+	cursor: pointer;
+	padding: 0;
+	opacity: 0.5;
+	transition:
+		opacity 0.2s,
+		color 0.2s;
+}
+
+.theme-toggle button:hover {
+	opacity: 1;
+	color: var(--color-sky);
+	text-decoration: underline dotted;
+}
+
+.theme-toggle button.active {
+	opacity: 1;
+	font-weight: bold;
+}
+
+.theme-toggle button:focus-visible {
+	outline: 2px solid var(--color-sky);
+	outline-offset: 2px;
+	border-radius: 2px;
+}
+
+.theme-toggle span {
+	opacity: 0.3;
+	margin: 0 0.5em;
+}
+
+@media only screen and (max-width: 600px) {
+	.theme-toggle {
+		position: relative;
+		top: auto;
+		right: auto;
+		text-align: center;
+		margin: 20px auto;
+	}
+}
+
 h1 {
 	font-family: "Poppins", sans-serif;
 	font-size: 2rem;
@@ -182,6 +289,11 @@ footer .copyright {
 }
 .card li {
 	display: inline-block;
+}
+
+.card li:not(:last-child)::after {
+	content: " | ";
+	margin: 0 0.25em;
 }
 
 .card .icon {

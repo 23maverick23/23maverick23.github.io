@@ -1,11 +1,47 @@
 ---
-import Landing from '../components/Landing.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import icon from "../assets/icon.png";
+import links from "../data/links.json";
 
 const pageTitle = "👋 Hello, I'm Ryan Morrissey";
 const pageDescription = "A professional landing page for Ryan Morrissey.";
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-	<Landing />
+	<main>
+		<div class="card">
+			<h1>👋 Hello, I'm<br />Ryan Morrissey</h1>
+
+			<p>
+				I'm a problem-solver who leads a Sales Consulting team at a large software company. My work
+				focuses on the High Tech industry, where I help my team design solutions that address our
+				customers' unique business challenges and pain points.
+			</p>
+
+			<p>
+				Throughout my career, I've designed efficient staffing models, created business intelligence
+				dashboards for leadership, and contributed technical solutions using our platform toolset.
+				My greatest achievement has been building strong, creative teams who consistently deliver
+				exceptional results for our customers.
+			</p>
+
+			<p>
+				Outside the office, you'll find me bird watching, spending time with my kids, or seeking out
+				solace in the great outdoors.
+			</p>
+
+			<ul>
+				{
+					links.map((link) => (
+						<li>
+							<a href={link.url} title={link.title}>
+								{link.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</main>
 </Layout>

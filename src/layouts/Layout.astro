@@ -1,41 +1,78 @@
 ---
-import stylesUrl from '../styles/style.css?url';
-import Footer from '../components/Footer.astro';
+import "../styles/style.css";
+import Footer from "../components/Footer.astro";
 
 const { title, description } = Astro.props;
 ---
+
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
+		<meta charset="utf-8" />
 		<title>{title}</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="{description}">
-	  
-		<meta property="og:title" content="ryancmorrissey.com">
-		<meta property="og:type" content={description}>
-		<meta property="og:url" content="https://ryancmorrissey.com">
-		<meta property="og:image" content="icon.png">
-		<meta property="og:image:alt" content="awesome-m-icon">
-	  
-		<link rel="icon" href="favicon.ico" sizes="any">
-		<link rel="apple-touch-icon" href="icon.png">
-	  
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://unpkg.com">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="{description}" />
 
-		<link rel="preload" href={stylesUrl} as="style">
-		<link rel="stylesheet" href={stylesUrl}>
-	  
-		<link rel="manifest" href="site.webmanifest">
-		<meta name="theme-color" content="var(--ctp-latte-sky)">
+		<meta property="og:title" content={title} />
+		<meta property="og:type" content="website" />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content="https://ryancmorrissey.com" />
+		<meta property="og:image" content="https://ryancmorrissey.com/icon.png" />
+		<meta property="og:image:alt" content="Ryan Morrissey logo" />
+
+		<link rel="icon" href="favicon.ico" sizes="any" />
+		<link rel="apple-touch-icon" href="icon.png" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto+Mono&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link rel="manifest" href="site.webmanifest" />
+		<meta name="theme-color" content="var(--ctp-latte-sky)" />
 	</head>
 	<body>
+		<div class="theme-toggle">
+			<button data-theme="light" aria-label="Switch to light theme">light</button>
+			<span aria-hidden="true">|</span>
+			<button data-theme="dark" aria-label="Switch to dark theme">dark</button>
+		</div>
 		<slot />
 		<Footer />
+		<script>
+			// Theme switcher
+			const buttons = document.querySelectorAll<HTMLButtonElement>(".theme-toggle button");
+			const STORAGE_KEY = "rcm-theme"; // Namespaced key to avoid conflicts
+			const stored = localStorage.getItem(STORAGE_KEY);
+
+			if (stored) document.documentElement.dataset.theme = stored;
+
+			function updateButtons() {
+				const current = document.documentElement.dataset.theme;
+				buttons.forEach((btn) => {
+					btn.classList.toggle("active", btn.dataset.theme === current);
+				});
+			}
+			updateButtons();
+
+			buttons.forEach((btn) => {
+				btn.addEventListener("click", () => {
+					const theme = btn.dataset.theme;
+					if (!theme) return;
+
+					if (btn.classList.contains("active")) {
+						// Click active theme = reset to auto
+						delete document.documentElement.dataset.theme;
+						localStorage.removeItem(STORAGE_KEY);
+					} else {
+						document.documentElement.dataset.theme = theme;
+						localStorage.setItem(STORAGE_KEY, theme);
+					}
+					updateButtons();
+				});
+			});
+		</script>
 	</body>
 </html>
-
-<style>
-
-</style>
