@@ -2,6 +2,12 @@
 // SCSS Variables
 // ============================================================================
 
+// Typography
+$font-family-mono: "Maple Mono", "Monaco", "Consolas", monospace;
+$font-family-sans: "Poppins", "Avenir", "Segoe UI", sans-serif;
+$font-family-base: $font-family-mono;
+$font-family-heading: $font-family-sans;
+
 // Spacing
 $spacing-unit: 1em;
 $spacing-small: 0.25em;
@@ -12,9 +18,11 @@ $spacing-large: 2rem;
 $border-radius: 10px;
 $border-width: 3px;
 
-// Layout
+// Card Layout
 $max-card-width: 600px;
 $card-width-mobile: 95%;
+
+// Footer
 $footer-bottom-offset: -5em;
 $footer-padding: 40px;
 $footer-margin: 20px;
@@ -29,12 +37,12 @@ $transition-slow: 10s;
 
 // Effects
 $blur-amount: 1.5rem;
-$icon-size: 50px;
 
 // Typography
 $font-size-base: 1.1em;
 $font-size-h1: 2rem;
 $font-size-theme-toggle: 0.9rem;
+
 $line-height-base: 1.4;
 
 // Positioning

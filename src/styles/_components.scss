@@ -16,25 +16,22 @@
 	button {
 		@include button-reset;
 		@include focus-ring;
-		opacity: 0.5;
-		color: inherit;
+		color: var(---color-overlay0);
 		transition:
 			opacity $transition-fast,
 			color $transition-fast;
 
 		&:hover {
-			opacity: 1;
 			color: var(--color-sky);
 		}
 
 		&.active {
-			opacity: 1;
 			font-weight: bold;
 		}
 	}
 
-	span {
-		opacity: 0.3;
+	.divider {
+		color: var(--color-overlay0);
 		margin: 0 $spacing-medium;
 	}
 
@@ -70,15 +67,6 @@
 	span[aria-hidden="true"] {
 		opacity: 0.3;
 		margin: 0 $spacing-small;
-	}
-
-	.icon {
-		margin-top: $icon-margin-top;
-
-		img {
-			height: $icon-size;
-			width: $icon-size;
-		}
 	}
 
 	// Animated gradient border effect

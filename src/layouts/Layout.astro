@@ -2,6 +2,7 @@
 import "@fontsource/maple-mono";
 import "@fontsource/poppins/600.css";
 import "../styles/style.scss";
+import ThemeSwitcher from "../components/ThemeSwitcher.astro";
 import Footer from "../components/Footer.astro";
 
 const { title, description } = Astro.props;
@@ -29,11 +30,7 @@ const { title, description } = Astro.props;
 		<meta name="theme-color" content="var(--ctp-latte-sky)" />
 	</head>
 	<body>
-		<div class="theme-toggle">
-			<button data-theme="light" aria-label="Switch to light theme">light</button>
-			<span aria-hidden="true">|</span>
-			<button data-theme="dark" aria-label="Switch to dark theme">dark</button>
-		</div>
+		<ThemeSwitcher />
 		<slot />
 		<Footer />
 		<script>

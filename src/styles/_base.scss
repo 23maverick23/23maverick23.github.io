@@ -1,11 +1,6 @@
 // ============================================================================
 // Base Styles
 // ============================================================================
-// HTML5 Boilerplate base styles with opinionated defaults
-// Credit: Nicolas Gallagher, Jonathan Neal, Kroc Camen, and the H5BP dev community
-
-/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
-/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
 
 @use "variables" as *;
 @use "mixins" as *;
@@ -17,7 +12,7 @@
 }
 
 html {
-	font-family: "Maple Mono", monospace;
+	font-family: $font-family-base;
 	font-optical-sizing: auto;
 	font-weight: 400;
 	font-style: normal;
@@ -27,17 +22,17 @@ html {
 }
 
 body {
+	display: flex;
+	flex-direction: column;
 	min-height: 100vh;
-	justify-content: center;
 	align-content: center;
+	justify-content: center;
 	align-items: center;
 	background: var(--color-base);
-	color: var(--color-text);
 
 	// Hide scrollbar on mobile
 	@include mobile {
 		scrollbar-width: none;
-		-ms-overflow-style: none;
 
 		&::-webkit-scrollbar {
 			display: none;
@@ -68,13 +63,8 @@ hr {
 	padding: 0;
 }
 
-// Remove gap between media elements and their containers
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
+// Remove gap between images and their containers
+img {
 	vertical-align: middle;
 }
 
@@ -92,7 +82,7 @@ textarea {
 
 // Typography
 h1 {
-	font-family: "Poppins", sans-serif;
+	font-family: $font-family-heading;
 	font-size: $font-size-h1;
 	font-weight: 600;
 	font-style: normal;
@@ -100,8 +90,7 @@ h1 {
 
 a {
 	text-decoration: none;
-	color: var(--color-text);
-	opacity: 0.5;
+	color: var(--color-overlay0);
 	transition:
 		opacity $transition-fast,
 		color $transition-fast;
