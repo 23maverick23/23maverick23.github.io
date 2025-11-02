@@ -16,7 +16,7 @@
 	button {
 		@include button-reset;
 		@include focus-ring;
-		color: var(---color-overlay0);
+		color: var(--color-overlay0);
 		transition:
 			opacity $transition-fast,
 			color $transition-fast;
