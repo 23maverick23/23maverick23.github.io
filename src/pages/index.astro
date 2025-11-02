@@ -1,7 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
-import icon from "../assets/icon.png";
 import links from "../data/links.json";
 
 const pageTitle = "👋 Hello, I'm Ryan Morrissey";
@@ -33,12 +31,13 @@ const pageDescription = "A professional landing page for Ryan Morrissey.";
 
 			<ul>
 				{
-					links.map((link) => (
-						<li>
+					links.map((link, index) => (
+						<>
 							<a href={link.url} title={link.title}>
 								{link.label}
 							</a>
-						</li>
+							{index < links.length - 1 && <span aria-hidden="true">|</span>}
+						</>
 					))
 				}
 			</ul>

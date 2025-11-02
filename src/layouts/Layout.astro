@@ -1,5 +1,7 @@
 ---
-import "../styles/style.css";
+import "@fontsource/maple-mono";
+import "@fontsource/poppins/600.css";
+import "../styles/style.scss";
 import Footer from "../components/Footer.astro";
 
 const { title, description } = Astro.props;
@@ -22,13 +24,6 @@ const { title, description } = Astro.props;
 
 		<link rel="icon" href="favicon.ico" sizes="any" />
 		<link rel="apple-touch-icon" href="icon.png" />
-
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto+Mono&display=swap"
-			rel="stylesheet"
-		/>
 
 		<link rel="manifest" href="site.webmanifest" />
 		<meta name="theme-color" content="var(--ctp-latte-sky)" />

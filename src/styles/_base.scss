@@ -1,0 +1,122 @@
+// ============================================================================
+// Base Styles
+// ============================================================================
+// HTML5 Boilerplate base styles with opinionated defaults
+// Credit: Nicolas Gallagher, Jonathan Neal, Kroc Camen, and the H5BP dev community
+
+/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
+/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+
+@use "variables" as *;
+@use "mixins" as *;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-family: "Maple Mono", monospace;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+	color: var(--color-text);
+	font-size: $font-size-base;
+	line-height: $line-height-base;
+}
+
+body {
+	min-height: 100vh;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	background: var(--color-base);
+	color: var(--color-text);
+
+	// Hide scrollbar on mobile
+	@include mobile {
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+}
+
+// Selection highlight
+::-moz-selection {
+	background: var(--color-surface1);
+	color: var(--color-sky);
+	text-shadow: none;
+}
+
+::selection {
+	background: var(--color-surface1);
+	color: var(--color-sky);
+	text-shadow: none;
+}
+
+// Better looking horizontal rule
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid var(--color-overlay0);
+	margin: $spacing-unit 0;
+	padding: 0;
+}
+
+// Remove gap between media elements and their containers
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+	vertical-align: middle;
+}
+
+// Remove default fieldset styles
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+// Allow only vertical resizing of textareas
+textarea {
+	resize: vertical;
+}
+
+// Typography
+h1 {
+	font-family: "Poppins", sans-serif;
+	font-size: $font-size-h1;
+	font-weight: 600;
+	font-style: normal;
+}
+
+a {
+	text-decoration: none;
+	color: var(--color-text);
+	opacity: 0.5;
+	transition:
+		opacity $transition-fast,
+		color $transition-fast;
+
+	@include hover-link;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+// Layout
+main {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+}

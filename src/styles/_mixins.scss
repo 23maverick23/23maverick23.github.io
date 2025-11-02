@@ -1,0 +1,91 @@
+// ============================================================================
+// Mixins
+// ============================================================================
+
+@use "variables" as *;
+
+// Button reset
+@mixin button-reset {
+	background: none;
+	border: none;
+	color: var(--color-text);
+	font-family: inherit;
+	font-size: inherit;
+	cursor: pointer;
+	padding: 0;
+}
+
+// Hover link effect
+@mixin hover-link {
+	&:hover {
+		color: var(--color-sky);
+	}
+}
+
+// Focus ring for accessibility
+@mixin focus-ring {
+	&:focus-visible {
+		outline: 2px solid var(--color-sky);
+		outline-offset: 2px;
+		border-radius: 2px;
+	}
+}
+
+// Conic gradient for card animation
+@mixin conic-gradient-animation {
+	background-image: conic-gradient(
+		from var(--angle),
+		var(--color-maroon),
+		var(--color-pink),
+		var(--color-sky),
+		var(--color-pink),
+		var(--color-maroon)
+	);
+}
+
+// Positioned pseudo-element overlay
+@mixin pseudo-overlay($blur: 0, $opacity: 1) {
+	content: "";
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+	z-index: $z-index-card-border;
+	padding: $border-width;
+	border-radius: $border-radius;
+
+	@if $blur > 0 {
+		filter: blur($blur);
+		opacity: $opacity;
+	}
+}
+
+// Responsive breakpoint mixins
+@mixin mobile {
+	@media only screen and (max-width: 600px) {
+		@content;
+	}
+}
+
+@mixin landscape {
+	@media only screen and (orientation: landscape) {
+		@content;
+	}
+}
+
+@mixin mobile-landscape {
+	@media only screen and (min-width: 375px) and (max-width: 850px) and (orientation: landscape) {
+		@content;
+	}
+}
+
+@mixin high-res {
+	@media print,
+		(-webkit-min-device-pixel-ratio: 1.25),
+		(min-resolution: 1.25dppx),
+		(min-resolution: 120dpi) {
+		@content;
+	}
+}

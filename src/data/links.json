@@ -1,5 +1,17 @@
 [
-    { "url": "https://ebird.org/profile/Mjk5MzUwNA", "title": "eBird profile page", "label": "ebird"},
-    { "url": "https://www.linkedin.com/in/ryancmorrissey/", "title": "LinkedIn profile page", "label": "linkedin"},
-    { "url": "https://github.com/23maverick23", "title": "Github profile page", "label": "github"}
+	{
+		"url": "https://ebird.org/profile/Mjk5MzUwNA",
+		"title": "eBird profile page",
+		"label": "ebird"
+	},
+	{
+		"url": "https://www.linkedin.com/in/ryancmorrissey/",
+		"title": "LinkedIn profile page",
+		"label": "linkedin"
+	},
+	{
+		"url": "https://github.com/23maverick23",
+		"title": "Github profile page",
+		"label": "github"
+	}
 ]

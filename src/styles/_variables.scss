@@ -1,0 +1,45 @@
+// ============================================================================
+// SCSS Variables
+// ============================================================================
+
+// Spacing
+$spacing-unit: 1em;
+$spacing-small: 0.25em;
+$spacing-medium: 0.5em;
+$spacing-large: 2rem;
+
+// Borders
+$border-radius: 10px;
+$border-width: 3px;
+
+// Layout
+$max-card-width: 600px;
+$card-width-mobile: 95%;
+$footer-bottom-offset: -5em;
+$footer-padding: 40px;
+$footer-margin: 20px;
+
+// Z-index scale
+$z-index-theme-toggle: 100;
+$z-index-card-border: -1;
+
+// Transitions & Animations
+$transition-fast: 0.2s;
+$transition-slow: 10s;
+
+// Effects
+$blur-amount: 1.5rem;
+$icon-size: 50px;
+
+// Typography
+$font-size-base: 1.1em;
+$font-size-h1: 2rem;
+$font-size-theme-toggle: 0.9rem;
+$line-height-base: 1.4;
+
+// Positioning
+$theme-toggle-position: 20px;
+$card-margin: 10px;
+$card-element-margin: 20px;
+$icon-margin-top: 30px;
+$list-margin-top: 30px;

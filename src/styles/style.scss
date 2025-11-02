@@ -1,0 +1,21 @@
+// ============================================================================
+// Main SCSS Entry Point
+// ============================================================================
+// Imports all partial files in dependency order
+
+// Configuration Layer
+@use "variables" as *;
+@use "mixins" as *;
+
+// Theme Layer
+@use "theme";
+
+// Base Layer
+@use "base";
+
+// Component Layer
+@use "components";
+
+// Utility Layer
+@use "utilities";
+@use "print";

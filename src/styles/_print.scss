@@ -1,0 +1,64 @@
+// ============================================================================
+// Print Styles
+// ============================================================================
+// Optimized styles for printing
+// Inlined to avoid additional HTTP request
+
+@media print {
+	*,
+	*::before,
+	*::after {
+		background: var(--color-base) !important;
+		color: var(--color-text) !important;
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
+
+	a {
+		&,
+		&:visited {
+			text-decoration: underline;
+		}
+
+		&[href]::after {
+			content: " (" attr(href) ")";
+		}
+
+		// Don't show links for fragment identifiers or javascript: pseudo protocol
+		&[href^="#"]::after,
+		&[href^="javascript:"]::after {
+			content: "";
+		}
+	}
+
+	abbr[title]::after {
+		content: " (" attr(title) ")";
+	}
+
+	pre {
+		white-space: pre-wrap !important;
+	}
+
+	pre,
+	blockquote {
+		border: 1px solid var(--color-subtext0);
+		page-break-inside: avoid;
+	}
+
+	tr,
+	img {
+		page-break-inside: avoid;
+	}
+
+	p,
+	h2,
+	h3 {
+		orphans: 3;
+		widows: 3;
+	}
+
+	h2,
+	h3 {
+		page-break-after: avoid;
+	}
+}

@@ -1,0 +1,157 @@
+// ============================================================================
+// Components
+// ============================================================================
+
+@use "variables" as *;
+@use "mixins" as *;
+
+// Theme Toggle Component
+.theme-toggle {
+	position: fixed;
+	top: $theme-toggle-position;
+	right: $theme-toggle-position;
+	font-size: $font-size-theme-toggle;
+	z-index: $z-index-theme-toggle;
+
+	button {
+		@include button-reset;
+		@include focus-ring;
+		opacity: 0.5;
+		color: inherit;
+		transition:
+			opacity $transition-fast,
+			color $transition-fast;
+
+		&:hover {
+			opacity: 1;
+			color: var(--color-sky);
+		}
+
+		&.active {
+			opacity: 1;
+			font-weight: bold;
+		}
+	}
+
+	span {
+		opacity: 0.3;
+		margin: 0 $spacing-medium;
+	}
+
+	@include mobile {
+		position: relative;
+		top: auto;
+		right: auto;
+		text-align: center;
+		margin: $theme-toggle-position auto;
+	}
+}
+
+// Card Component
+.card {
+	margin: auto;
+	padding: $spacing-large;
+	max-width: $max-card-width;
+	width: $card-width-mobile;
+	background: var(--color-mantle);
+	text-align: center;
+	border-radius: $border-radius;
+	position: relative;
+
+	> p {
+		margin-top: $card-element-margin;
+	}
+
+	ul {
+		margin-top: $list-margin-top;
+		list-style-type: none;
+	}
+
+	span[aria-hidden="true"] {
+		opacity: 0.3;
+		margin: 0 $spacing-small;
+	}
+
+	.icon {
+		margin-top: $icon-margin-top;
+
+		img {
+			height: $icon-size;
+			width: $icon-size;
+		}
+	}
+
+	// Animated gradient border effect
+	&::after,
+	&::before {
+		@include pseudo-overlay;
+		@include conic-gradient-animation;
+		animation: $transition-slow spin linear infinite;
+	}
+
+	&::before {
+		@include pseudo-overlay($blur-amount, 0.5);
+		@include conic-gradient-animation;
+	}
+
+	// Disable animation on mobile for performance
+	@include mobile {
+		width: $card-width-mobile;
+		margin: $card-margin auto;
+
+		&::after,
+		&::before {
+			animation: none !important;
+		}
+	}
+
+	@include mobile-landscape {
+		width: $card-width-mobile;
+		margin: $card-margin auto;
+
+		&::after,
+		&::before {
+			animation: none !important;
+		}
+	}
+
+	@include landscape {
+		width: $card-width-mobile;
+		margin: $card-margin auto;
+	}
+}
+
+// Card gradient animation keyframes
+@property --angle {
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
+}
+
+@keyframes spin {
+	from {
+		--angle: 0deg;
+	}
+	to {
+		--angle: 360deg;
+	}
+}
+
+// Footer Component
+footer {
+	display: flex;
+	justify-content: space-around;
+	position: relative;
+	bottom: $footer-bottom-offset;
+	padding-bottom: $footer-padding;
+
+	@include mobile {
+		bottom: 0;
+		padding-bottom: 0;
+		margin: $footer-margin auto;
+	}
+
+	.copyright {
+		color: var(--color-overlay0);
+	}
+}
